@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,6 +65,10 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View headerview = (NavigationView) findViewById(R.id.nav_view);
+        TextView userNameTextView = headerview.findViewById(R.id.user_name_profile);
+
+
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -106,7 +111,7 @@ public class HomeActivity extends AppCompatActivity
 */
 
         return super.onOptionsItemSelected(item);
-        
+
     }
 
 
