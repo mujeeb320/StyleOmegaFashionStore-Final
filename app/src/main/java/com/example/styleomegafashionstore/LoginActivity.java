@@ -1,8 +1,5 @@
 package com.example.styleomegafashionstore;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,12 +10,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.styleomegafashionstore.Prevalent.Prevalent;
 import com.example.styleomegafashionstore.model.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
     private TextView AdminLink, NotAdminLink;
-
+    private CheckBox chkBoxRememberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         AdminLink= (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink= (TextView) findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
+
+        chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me);
+        Paper.init(this);
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +102,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void LoginAccess(final String phone, final String password) {
 
+        if(chkBoxRememberMe.isChecked())
+        {
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+        }
+
+
         final DatabaseReference Rootref;
         Rootref = FirebaseDatabase.getInstance().getReference();
 
@@ -119,7 +133,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                Prevalent.currentOnlineUsers= usersdata;
                                 startActivity(intent);
+
                             }
 
                         }else{
