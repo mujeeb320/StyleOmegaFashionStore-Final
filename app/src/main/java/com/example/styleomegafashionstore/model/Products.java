@@ -7,6 +7,17 @@ public class Products {
 
     }
 
+
+    public Products(String date, String pid, String time, String pprice, String pname, String pdescription, String pimage) {
+        this.date = date;
+        this.pid = pid;
+        this.time = time;
+        this.pprice = pprice;
+        this.pname = pname;
+        this.pdescription = pdescription;
+        this.pimage = pimage;
+    }
+
     public Products(String date, String pid, String time, String pprice, String pname, String pdescription, String pimage, String pcategory) {
         this.date = date;
         this.pid = pid;
