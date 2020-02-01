@@ -67,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         refe.child(Prevalent.currentOnlineUsers.getPhone()).updateChildren(userMap);
 
-        startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
         Toast.makeText(this, "Information updated Successfully!", Toast.LENGTH_SHORT).show();
         finish();
     }
