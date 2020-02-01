@@ -1,18 +1,25 @@
 package com.example.styleomegafashionstore.model;
 
 public class Users {
-    private String name, password, phone;
+    private String name, password, phone, address;
 
-    public Users()
-    {
-
+    public Users() {
     }
 
-    public Users(String name, String password, String phone) {
+    public Users(String name, String password, String phone, String address) {
         this.name = name;
         this.password = password;
         this.phone = phone;
+        this.address = address;
     }
+
+    public Users(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
+
 
     public String getName() {
         return name;
@@ -36,5 +43,13 @@ public class Users {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

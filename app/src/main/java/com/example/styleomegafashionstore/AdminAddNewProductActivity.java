@@ -1,12 +1,7 @@
 package com.example.styleomegafashionstore;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -177,7 +176,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("pcategory", CategoryName);
         productMap.put("pname", Pname);
         productMap.put("pdescription", Description);
-        productMap.put("pprice", Pname);
+        productMap.put("pprice", Price);
         productMap.put("pimage", downloadImageURL);
         productMap.put("time", saveCurrentTime);
         productMap.put("date", saveCurrentDate);
