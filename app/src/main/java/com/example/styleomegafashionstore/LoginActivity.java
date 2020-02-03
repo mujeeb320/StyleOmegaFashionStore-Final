@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         AdminLink= (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink= (TextView) findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
-
         chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me);
         Paper.init(this);
 

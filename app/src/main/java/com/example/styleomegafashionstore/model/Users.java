@@ -19,8 +19,6 @@ public class Users {
         this.address = address;
     }
 
-
-
     public String getName() {
         return name;
     }

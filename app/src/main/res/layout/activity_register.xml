@@ -48,9 +48,6 @@
         android:textStyle="bold"
         android:layout_marginTop="6dp"
         />
-
-
-
     <EditText
         android:id="@+id/register_password_input"
         android:layout_width="match_parent"
